@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="DiabeticJournal.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DiabeticJournal"
+    Shell.TabBarIsVisible="False"
+    xmlns:dashboardPages="clr-namespace:DiabeticJournal.Views.Dashboard"
+    xmlns:startupPages="clr-namespace:DiabeticJournal.Views.Startup"
+    xmlns:ratioPages="clr-namespace:DiabeticJournal.Views.Ratio"
+    >
+
+    <ShellContent
+        Title="Login"
+        FlyoutItemIsVisible="False"
+        ContentTemplate="{DataTemplate startupPages:LoginPage}"
+        Route="LoginPage" 
+        Shell.FlyoutBehavior="Disabled"/>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Dashboard"
+            ContentTemplate="{DataTemplate dashboardPages:DashboardPage}"
+            Route="Dashboard"/>
+        <ShellContent
+            Title="User Settings"
+            ContentTemplate="{DataTemplate dashboardPages:DashboardPage}"
+            Route="#"/>
+        <ShellContent
+            Title="User Ratios"
+            ContentTemplate="{DataTemplate ratioPages:UserRatioPage}"
+            Route="UserRatioPage"/>
+
+        <ShellContent
+            Title="Add Blood Sugar"
+            ContentTemplate="{DataTemplate dashboardPages:BloodCheckPage}"
+            Route="BloodCheckPage"/>
+        <ShellContent
+            Title="Blood Sugar Log"
+            ContentTemplate="{DataTemplate dashboardPages:DashboardPage}"
+            Route="#"/>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Log Out" Command="{Binding LogOutCommand}" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
+</Shell>

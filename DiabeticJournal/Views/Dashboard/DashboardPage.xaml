@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiabeticJournal.Views.Dashboard.DashboardPage"
+             Title="Dashboard"
+             BackgroundColor="Black">
+    <StackLayout>
+        <Label 
+            Text="{Binding Title}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            TextColor="White"
+            FontSize="20"
+            Margin="0,40,0,100"/>
+        <Button Margin="0,0,0,10" Text="Add Blood Sugar" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" Command="{Binding BloodCheckNavCommand}"/>
+        <Button Margin="0,0,0,10" Text="User Ratios" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" Command="{Binding UserRatioNavCommand}"/>
+        <Button Margin="0,0,0,10" Text="Blood Sugar Log" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" />
+        <Button Margin="0,0,0,10" Text="User Settings" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray"/>
+        <Button Margin="0,0,0,10" Text="User Ratios" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" />
+
+    </StackLayout>
+</ContentPage>

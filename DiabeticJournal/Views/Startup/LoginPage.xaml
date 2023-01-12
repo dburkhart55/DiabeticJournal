@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiabeticJournal.Views.Startup.LoginPage"
+             Shell.NavBarIsVisible="False"
+             xmlns:handlers="clr-namespace:DiabeticJournal.Handlers"
+             Title="LoginPage"
+             BackgroundColor="Black">
+    <VerticalStackLayout
+            Spacing="25"
+            Padding="38,0"
+            VerticalOptions="Center">
+        <Image Source="diabeteslogo.svg" HeightRequest="150" WidthRequest="150" />
+
+        <VerticalStackLayout Spacing="5">
+            <Label Text="Welcome!" FontSize="28" TextColor="Gray" HorizontalTextAlignment="Center" />
+            <Label Text="Login to your account" FontSize="18" TextColor="Gray" HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+                <Image Source="silhoutte.png" HeightRequest="28" WidthRequest="28" />
+            </Frame>
+            <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <handlers:BorderlessEntry Text="{Binding Username}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="User Name" Keyboard="Email" />
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame ZIndex="1" HasShadow="True" BorderColor="White" HeightRequest="56" WidthRequest="56" CornerRadius="28">
+                <Image Source="padlock.png" HeightRequest="28" WidthRequest="28" />
+            </Frame>
+            <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <handlers:BorderlessEntry Text="{Binding Password}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Password" Keyboard="Email" />
+            </Frame>
+        </StackLayout>
+
+        <Button Text="Sign In" WidthRequest="100" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#0792ef" Command="{Binding LoginCommand}"/>
+
+        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
+            <Label Text="Don't have an account?" TextColor="Gray"/>
+            <Label Text="Sign up here" TextColor="#58b3f2"/>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

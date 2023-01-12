@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiabeticJournal.Views.Dashboard.BloodCheckPage"
+             xmlns:handlers="clr-namespace:DiabeticJournal.Handlers"
+             Title="{Binding Title}"
+             BackgroundColor="Black">
+    <VerticalStackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand" >
+                <handlers:BorderlessEntry Text="{Binding BloodSugar}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="BloodSugar" Keyboard="Numeric" />
+            </Frame>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Padding="0" Margin="40,10,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <DatePicker Date="{Binding Date}" VerticalOptions="Center" Margin="20,0,0,0" />
+            </Frame>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Padding="0" Margin="40,10,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <TimePicker Time="{Binding Time}" VerticalOptions="Center" Margin="20,0,0,0" />
+            </Frame>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Padding="0" Margin="40,10,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
+                <Picker Title="Testing Reason" ItemsSource="{Binding Test}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedType}" VerticalOptions="Center" Margin="20,0,0,0" />
+            </Frame>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="45" Padding="0" Margin="40,10,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand" >
+                <handlers:BorderlessEntry Text="{Binding Carbs}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Carbs" Keyboard="Numeric" />
+            </Frame>
+        </StackLayout>
+
+        <Button Text="Calculate" TextColor="Black" Margin="0,40,0,0" WidthRequest="200" HeightRequest="50" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#4cbb17" Command="{Binding CalculateCommand}"/>
+
+    </VerticalStackLayout>
+</ContentPage>
