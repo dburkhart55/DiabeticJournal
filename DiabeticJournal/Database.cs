@@ -294,5 +294,20 @@ namespace DiabeticJournal
             }
             return null;
         }
+
+        public async Task<int> DeleteRatio(Models.Ratio ratio)
+        {
+            try
+            {
+                await Init();
+
+                return await db.DeleteAsync(ratio);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return 0;
+        }
     }
 }

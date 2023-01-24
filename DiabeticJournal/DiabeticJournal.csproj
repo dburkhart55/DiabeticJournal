@@ -71,6 +71,9 @@
 	  <MauiXaml Update="Views\Dashboard\DashboardPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Ratio\AddRatioPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Ratio\UserRatioPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

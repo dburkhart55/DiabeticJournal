@@ -35,6 +35,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<BloodCheckPage>();
         builder.Services.AddSingleton<UserRatioPage>();
         builder.Services.AddSingleton<ViewRatioPage>();
+        builder.Services.AddSingleton<AddRatioPage>();
 
         //View Models
         builder.Services.AddSingleton<LoginPageViewModel>();
@@ -42,6 +43,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<BloodCheckPageViewModel>();
         builder.Services.AddSingleton<UserRatioPageViewModel>();
         builder.Services.AddSingleton<ViewRatioPageViewModel>();
+        builder.Services.AddSingleton<AddRatioPageViewModel>();
 
         builder.Services.AddSingleton<Database>();
 

@@ -4,6 +4,7 @@ using DiabeticJournal.ViewModels.Ratio;
 using static System.Net.Mime.MediaTypeNames;
 using System.Globalization;
 
+
 namespace DiabeticJournal.Views.Ratio;
 
 public partial class UserRatioPage : ContentPage
@@ -12,13 +13,15 @@ public partial class UserRatioPage : ContentPage
 	{
 		InitializeComponent();
 		this.BindingContext = viewModel;
+
+        viewModel.GetRatioList();
         
     }
 
-   
 
 
-    private async void RatioTapped(object sender, ItemTappedEventArgs e)
+
+        private async void RatioTapped(object sender, ItemTappedEventArgs e)
     {
         var ratio = (Models.Ratio)e.Item;
         /*DateTime dateTime = DateTime.ParseExact(ratio.StartTime, "hh:mm tt", CultureInfo.InvariantCulture);
@@ -32,22 +35,22 @@ public partial class UserRatioPage : ContentPage
         r1.CarbRate= ratio.CarbRate;
         r1.StartTime = span;
         r1.EndTime = span2;*/
-        int id = ratio.Id;
+        /*int id = ratio.Id;
 
 
         if (ratio == null)
             return;
 
-        await Shell.Current.GoToAsync($"{nameof(ViewRatioPage)}?Id={id}");
+        await Shell.Current.GoToAsync($"{nameof(ViewRatioPage)}?Id={id}");*/
 
-        /*await Shell.Current.GoToAsync(nameof(ViewRatioPage), false, new Dictionary<string, object>
+        await Shell.Current.GoToAsync(nameof(ViewRatioPage), false, new Dictionary<string, object>
         {
             {
 
-                "ratio", r1
+                "ratio", ratio
             }
 
-        });*/
+        });
         
 
     }
