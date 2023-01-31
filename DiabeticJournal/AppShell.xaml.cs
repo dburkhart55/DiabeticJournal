@@ -21,6 +21,7 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute(nameof(BloodCheckPage), typeof(BloodCheckPage));
 		Routing.RegisterRoute(nameof(UserRatioPage), typeof(UserRatioPage));
 		Routing.RegisterRoute(nameof(ViewRatioPage), typeof(ViewRatioPage));
+		Routing.RegisterRoute(nameof(AddRatioPage), typeof(AddRatioPage));
 	}
 
 

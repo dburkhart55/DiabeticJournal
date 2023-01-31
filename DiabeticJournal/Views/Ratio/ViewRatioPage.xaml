@@ -21,6 +21,6 @@
                 <TimePicker Time="{Binding EndTime}" VerticalOptions="Center" Margin="20,0,0,0" />
             </Frame>
         </StackLayout>
-        <Button Text="Update" TextColor="Black" Margin="0,40,0,0" WidthRequest="200" HeightRequest="50" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#4cbb17" />
+        <Button Text="Update" TextColor="Black" Margin="0,40,0,0" WidthRequest="200" HeightRequest="50" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#4cbb17" Command="{Binding UpdateRatioCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

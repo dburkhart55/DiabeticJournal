@@ -309,5 +309,20 @@ namespace DiabeticJournal
             }
             return 0;
         }
+
+        public async Task<int> UpdateRatio(Models.Ratio ratio)
+        {
+            try
+            {
+                await Init();
+
+                return await db.UpdateAsync(ratio);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return 0;
+        }
     }
 }

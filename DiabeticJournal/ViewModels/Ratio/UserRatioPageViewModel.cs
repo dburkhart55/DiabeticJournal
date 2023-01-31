@@ -55,7 +55,7 @@ namespace DiabeticJournal.ViewModels.Ratio
         [ICommand]
         public async void AddRatio()
         {
-            await AppShell.Current.GoToAsync(nameof(AddRatioPage));
+            await Shell.Current.GoToAsync(nameof(AddRatioPage),false);
         }
 
         [ICommand]

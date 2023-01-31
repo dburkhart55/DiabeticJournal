@@ -1,4 +1,4 @@
-using AndroidX.Lifecycle;
+
 using DiabeticJournal.ViewModels.Ratio;
 
 namespace DiabeticJournal.Views.Ratio;
