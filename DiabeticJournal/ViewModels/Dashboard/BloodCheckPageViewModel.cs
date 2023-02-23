@@ -30,6 +30,9 @@ namespace DiabeticJournal.ViewModels.Dashboard
         [ObservableProperty]
         private int? _carbs = null;
 
+        [ObservableProperty]
+        private string? _comment = null;
+
         Database db;
 
 
@@ -59,8 +62,13 @@ namespace DiabeticJournal.ViewModels.Dashboard
         {
            
 
-            App.Current.MainPage.DisplayAlert("testing", BloodSugar.ToString() + " " + Date.ToString() + " " + Time.ToString() + " " + SelectedType.Name + " " + Carbs.ToString(), "OK");
-            /*switch(SelectedType.Name) 
+            App.Current.MainPage.DisplayAlert("testing", BloodSugar.ToString() + " " + Date.ToString() + " " + Time.ToString() + " " + SelectedType.Name + " " + Carbs.ToString() + " " + Comment, "OK");
+
+            Models.Ratio ratio = await db.GetRatioByTime(Time);
+
+            App.Current.MainPage.DisplayAlert("testing", ratio.StartTime + " " + ratio.CarbRate + " " + ratio.EndTime, "OK");
+            
+            /* switch(SelectedType.Name) 
             {
                 case "Bolus":
                     Ratio ratio = await db.

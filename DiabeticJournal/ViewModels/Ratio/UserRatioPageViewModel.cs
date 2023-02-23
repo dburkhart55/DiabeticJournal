@@ -22,20 +22,11 @@ namespace DiabeticJournal.ViewModels.Ratio
         {
             db = database;
             Title = "User Ratios";
-            //BuildList();
+
         }
 
 
-        /*public async void BuildList()
-        {
-            List<Models.Ratio> list = new List<Models.Ratio>();
-            list = await db.GetRatiosAsync();
-            if (list.Count > 0)
-            {
-                RatioList = list;
-            }
-            return;
-        }*/
+
 
         [ICommand]
         public async void GetRatioList()

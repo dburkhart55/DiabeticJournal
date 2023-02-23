@@ -18,7 +18,7 @@ namespace DiabeticJournal.Models
         public int? Sugar { get; set; }
         public int TestId { get; set; }
         public double? Insulin { get; set; }
-        public string Comment { get; set; }
+        public string? Comment { get; set; }
 
     }
 }

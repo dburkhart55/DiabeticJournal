@@ -31,8 +31,12 @@
                 <handlers:BorderlessEntry Text="{Binding Carbs}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Carbs" Keyboard="Numeric" />
             </Frame>
         </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Frame HeightRequest="125" Padding="0" Margin="40,10,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand" >
+                <Editor TextColor="Black" Text="{Binding Comment}" Placeholder="Additional Information..." PlaceholderColor="Gray" HeightRequest="100" Margin="20,0,0,0" VerticalOptions="Center"/>
+            </Frame>
+        </StackLayout>
 
         <Button Text="Calculate" TextColor="Black" Margin="0,40,0,0" WidthRequest="200" HeightRequest="50" CornerRadius="20" HorizontalOptions="Center" BackgroundColor="#4cbb17" Command="{Binding CalculateCommand}"/>
-
     </VerticalStackLayout>
 </ContentPage>

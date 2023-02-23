@@ -39,7 +39,11 @@
 
         <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="Center">
             <Label Text="Don't have an account?" TextColor="Gray"/>
-            <Label Text="Sign up here" TextColor="#58b3f2"/>
+            <Label Text="Sign up here" TextColor="#58b3f2">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RegisterNavCommand}" CommandParameter="{Binding .}"/>
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

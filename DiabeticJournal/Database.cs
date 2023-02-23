@@ -86,7 +86,7 @@ namespace DiabeticJournal
                 TimeOnly r4et = TimeOnly.Parse("20:00:00");
                 TimeOnly r5st = TimeOnly.Parse("20:00:00");
                 TimeOnly r5et = TimeOnly.Parse("23:59:59");
-
+                
 
                 Ratio r1 = new Ratio();
                 Ratio r2 = new Ratio();
@@ -276,6 +276,24 @@ namespace DiabeticJournal
                 Console.WriteLine(ex.Message);
             }
             return null;
+        }
+
+        public async Task<Ratio> GetRatioByTime(TimeSpan time)
+        {
+            var ratList = await GetRatiosAsync();
+
+            foreach(Ratio ratio in ratList)
+            {
+                TimeSpan st = TimeSpan.Parse(ratio.StartTime);
+                TimeSpan et = TimeSpan.Parse(ratio.EndTime);
+
+                if(st < time && time < et)
+                {
+                    return ratio;
+                }
+            }
+            return null;
+
         }
 
         public async Task<Ratio> GetRatio(int id)

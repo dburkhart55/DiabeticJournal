@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DiabeticJournal.Models;
+using DiabeticJournal.Views.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace DiabeticJournal.ViewModels.Startup
     public partial class LoginPageViewModel : BaseViewModel
     {
         [ObservableProperty]
-        private string _username;
+        private string _Username;
 
         [ObservableProperty]
         private string _password;
@@ -36,15 +37,15 @@ namespace DiabeticJournal.ViewModels.Startup
         {
             if(string.IsNullOrEmpty(Username) && string.IsNullOrEmpty(Password))
             {
-                await App.Current.MainPage.DisplayAlert("Invalid Username or Password", "Please enter a username and password.", "OK");
+                await App.Current.MainPage.DisplayAlert("Invalid Models.Username or Password", "Please enter a Models.Username and password.", "OK");
             }
             else
             {
-                User user = new User();
+                Models.User user = new Models.User();
                 user.UserName = Username; 
                 user.Password = EncryptPass(Password);
 
-                User loggedIn = await ValidateCreds(user);
+                Models.User loggedIn = await ValidateCreds(user);
 
                 if(loggedIn != null)
                 {
@@ -53,11 +54,23 @@ namespace DiabeticJournal.ViewModels.Startup
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("Invalid Username or Password", "Please enter a valid username and password.", "OK");
+                    await App.Current.MainPage.DisplayAlert("Invalid Models.Username or Password", "Please enter a valid Models.Username and password.", "OK");
                 }
             }
         }
+
+        [ICommand]
+        async void RegisterNav()
+        {
+            await Shell.Current.GoToAsync($"{nameof(RegistrationPage)}",false);
+        }
         #endregion
+
+       /* [ICommand]
+        async void RegisterNav()
+        {
+
+        }*/
 
         public static string EncryptPass(string pass)
         {
@@ -80,18 +93,19 @@ namespace DiabeticJournal.ViewModels.Startup
         }
 
 
-        public async Task<User> ValidateCreds(User login)
+
+        public async Task<Models.User> ValidateCreds(Models.User login)
         {
             
-            List<User> userList = await db.GetUsers();
+            List<Models.User> UserList = await db.GetUsers();
 
-            if(userList.Count > 0)
+            if(UserList.Count > 0)
             {
-                foreach(User u in userList)
+                foreach(Models.User u in UserList)
                 {
                     if(u.UserName.ToUpper() == login.UserName.ToUpper() && u.Password == login.Password)
                     {
-                        User user = new User();
+                        Models.User user = new Models.User();
                         user.UserName = u.UserName;
                         user.Password = u.Password;
                         user.Email = u.Email;
