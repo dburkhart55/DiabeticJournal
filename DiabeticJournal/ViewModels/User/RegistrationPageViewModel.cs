@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using DiabeticJournal.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace DiabeticJournal.ViewModels.User
 {
     public partial class RegistrationPageViewModel : BaseViewModel
     {
-        Database db;
+        public Database db;
 
         [ObservableProperty]
         private string lastName;
@@ -52,6 +53,33 @@ namespace DiabeticJournal.ViewModels.User
 
         [ObservableProperty]
         public int basalFactor;
+
+        [ObservableProperty]
+        public List<Models.Units> unitList;
+
+        [ObservableProperty]
+        public int unitID;
+
+
+        public RegistrationPageViewModel(Database database)
+        {
+            db = database;
+            Title = "User Registration";
+            BuildPicker();
+            //Shell.Current.DisplayAlert("TItle", UnitList.ToString(), "OK");
+        }
+
+        public async void BuildPicker()
+        {
+            List<Units> list = new List<Units>();
+            list = await db.GetUnits();
+            if (list.Count > 0)
+            {
+                UnitList = list;
+            }
+            return;
+        }
+
 
     }
 }

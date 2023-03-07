@@ -32,6 +32,7 @@ namespace DiabeticJournal
                 var r = await db.CreateTableAsync<BloodRec>();
                 var e = await db.CreateTableAsync<Ratio>();
                 var s = await db.CreateTableAsync<Test>();
+                var u = await db.CreateTableAsync<Units>();
                 setDemo();
             }
 
@@ -69,6 +70,22 @@ namespace DiabeticJournal
                 CreateTestAsync(Test1);
                 CreateTestAsync(Test2);
                 CreateTestAsync(Test3);
+            }
+
+            List<Units> Unit = new List<Units>();
+            Unit = await db.Table<Units>().ToListAsync();
+            if (Unit.Count == 0)
+            {
+                Units unit = new Units();
+                Units unit2 = new Units();
+                unit.Name = "Imperial";
+                unit.Abbreviation = "Lbs.";
+                unit2.Name = "Meteric";
+                unit2.Abbreviation = "Kg";
+
+                await db.InsertAsync(unit);
+                await db.InsertAsync(unit2);
+
             }
 
             List<Ratio> ratios = new List<Ratio>();
@@ -141,6 +158,12 @@ namespace DiabeticJournal
                 Console.WriteLine(ex.Message);
             }
             return 0;
+        }
+
+        public async Task<List<Units>> GetUnits()
+        {
+            await Init();
+            return await db.Table<Units>().ToListAsync();
         }
 
         public async Task<List<User>> GetUsers()
