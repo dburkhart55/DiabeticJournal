@@ -70,44 +70,46 @@
                 <Label Text="Fast Acting Insulin:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Text="{Binding Email}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Email" Keyboard="Default"/>
+                    <handlers:BorderlessEntry Text="{Binding FAInsulin}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Fast Acting Insulin" Keyboard="Default"/>
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Slow Acting Insulin:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Text="{Binding Email}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Email" Keyboard="Default"/>
+                    <handlers:BorderlessEntry Text="{Binding SAInsulin}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Slow Acting Insulin" Keyboard="Default"/>
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Overnight Basal Rate:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Text="{Binding Email}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Email" Keyboard="Default"/>
+                    <handlers:BorderlessEntry Text="{Binding OverNightBasalRate}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Overnight Basal Rate" Keyboard="Default"/>
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Doctor's Name:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Text="{Binding Email}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Email" Keyboard="Default"/>
+                    <handlers:BorderlessEntry Text="{Binding DoctorName}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Doctor's Name" Keyboard="Default"/>
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Doctor's Email:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <handlers:BorderlessEntry Text="{Binding Email}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Email" Keyboard="Default"/>
+                    <handlers:BorderlessEntry Text="{Binding DoctorEmail}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Doctor's Email" Keyboard="Default"/>
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Basal Factor:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Picker Title="Testing Reason" ItemsSource="{Binding UnitList}" ItemDisplayBinding="{Binding Abbreviation}" SelectedItem="{Binding UnitID}" VerticalOptions="Center" Margin="20,0,0,0" />
+                    <Picker Title="Testing Reason" ItemsSource="{Binding FactorList}" ItemDisplayBinding="{Binding FactorRate}" SelectedItem="{Binding BasalFactor}" VerticalOptions="Center" Margin="20,0,0,0" />
                 </Frame>
             </StackLayout>
+            <Button Text="Submit" WidthRequest="150" HeightRequest="50" Command="SubmitUserCommand"/>
         </VerticalStackLayout>
+        
     </ScrollView>
 </ContentPage>

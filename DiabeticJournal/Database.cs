@@ -33,6 +33,7 @@ namespace DiabeticJournal
                 var e = await db.CreateTableAsync<Ratio>();
                 var s = await db.CreateTableAsync<Test>();
                 var u = await db.CreateTableAsync<Units>();
+                var f = await db.CreateTableAsync<BasalFactor>();
                 setDemo();
             }
 
@@ -86,6 +87,19 @@ namespace DiabeticJournal
                 await db.InsertAsync(unit);
                 await db.InsertAsync(unit2);
 
+            }
+
+            List<BasalFactor> factors = new List<BasalFactor>();
+            factors = await db.Table<BasalFactor>().ToListAsync();
+            if (factors.Count == 0)
+            {
+                BasalFactor bf = new BasalFactor();
+                BasalFactor bf2 = new BasalFactor();
+                bf.FactorRate = .2;
+                bf2.FactorRate = .3;
+                
+                await db.InsertAsync(bf);
+                await db.InsertAsync(bf2);
             }
 
             List<Ratio> ratios = new List<Ratio>();
@@ -164,6 +178,12 @@ namespace DiabeticJournal
         {
             await Init();
             return await db.Table<Units>().ToListAsync();
+        }
+
+        public async Task<List<BasalFactor>> GetFactors()
+        {
+            await Init();
+            return await db.Table<BasalFactor>().ToListAsync();
         }
 
         public async Task<List<User>> GetUsers()

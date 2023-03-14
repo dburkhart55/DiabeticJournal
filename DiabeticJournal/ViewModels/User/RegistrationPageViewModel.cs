@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using DiabeticJournal.Models;
 using System;
 using System.Collections.Generic;
@@ -52,13 +53,16 @@ namespace DiabeticJournal.ViewModels.User
         public string doctorEmail;
 
         [ObservableProperty]
-        public int basalFactor;
+        public double basalFactor;
 
         [ObservableProperty]
-        public List<Models.Units> unitList;
+        public List<Units> unitList;
 
         [ObservableProperty]
         public int unitID;
+
+        [ObservableProperty]
+        public List<BasalFactor> factorList;
 
 
         public RegistrationPageViewModel(Database database)
@@ -78,6 +82,21 @@ namespace DiabeticJournal.ViewModels.User
                 UnitList = list;
             }
             return;
+        }
+
+        [ICommand]
+        async void SubmitUser()
+        {
+            Models.User user = new Models.User();
+            user.FirstName = FirstName;
+            user.LastName = LastName;
+            user.UserName = UserName;
+            user.Email = Email;
+            user.Password = Password;
+            user.Weight = Weight;
+            user.TargetSugar = TargetSugar;
+            user.SAInsulin = SAInsulin;
+            user.FAInsulin = FAInsulin;
         }
 
 
