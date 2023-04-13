@@ -11,13 +11,16 @@ namespace DiabeticJournal;
 public partial class AppShell : Shell
 {
 
+
+	Database db;
    
 
-   
-
-    public AppShell()
+    public AppShell(Database database)
 	{
 		InitializeComponent();
+		db = database;
+		db.Init();
+		
 		this.BindingContext = new AppShellViewModel();
 		Routing.RegisterRoute(nameof(DashboardPage), typeof(DashboardPage));
 		Routing.RegisterRoute(nameof(BloodCheckPage), typeof(BloodCheckPage));

@@ -54,7 +54,7 @@ namespace DiabeticJournal.ViewModels.Startup
                 }
                 else
                 {
-                    await App.Current.MainPage.DisplayAlert("Invalid Models.Username or Password", "Please enter a valid Models.Username and password.", "OK");
+                    await App.Current.MainPage.DisplayAlert("Invalid Username or Password", "Please enter a valid Username and password.", "OK");
                 }
             }
         }

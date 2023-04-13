@@ -63,7 +63,7 @@
                 <Label Text="Units:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Picker Title="Testing Reason" ItemsSource="{Binding UnitList}" ItemDisplayBinding="{Binding Abbreviation}" SelectedItem="{Binding UnitID}" VerticalOptions="Center" Margin="20,0,0,0" />
+                    <Picker Title="Measurement Units" ItemsSource="{Binding UnitList}" ItemDisplayBinding="{Binding Abbreviation}" SelectedItem="{Binding UnitID}" VerticalOptions="Center" Margin="20,0,0,0" />
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
@@ -102,13 +102,13 @@
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Basal Factor:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
+                <Label Text="Units:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Picker Title="Testing Reason" ItemsSource="{Binding FactorList}" ItemDisplayBinding="{Binding FactorRate}" SelectedItem="{Binding BasalFactor}" VerticalOptions="Center" Margin="20,0,0,0" />
+                    <Picker Title="Basal Factor" ItemsSource="{Binding FactorList}" ItemDisplayBinding="{Binding FactorRate}"  SelectedItem="{Binding Factor}" VerticalOptions="Center" Margin="20,0,0,0" />
                 </Frame>
             </StackLayout>
-            <Button Text="Submit" WidthRequest="150" HeightRequest="50" Command="SubmitUserCommand"/>
+            <Button Text="Submit" WidthRequest="150" HeightRequest="50" Command="{Binding SubmitUserCommand}"/>
         </VerticalStackLayout>
         
     </ScrollView>

@@ -9,7 +9,7 @@ public partial class App : Application
 
 	public static User loggedInUser;
 
-	Database db;
+	//Database db;
 
 
 
@@ -27,11 +27,12 @@ public partial class App : Application
 #endif
 			}
 		});
-		db = database;
+		//db = database;
 
-		
+		//db.Init();
+		//db.setDemo();
 
-		MainPage = new AppShell();
+		MainPage = new AppShell(database);
 
 		
 

@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DiabeticJournal.Models;
+using DiabeticJournal.ViewModels.Startup;
+using DiabeticJournal.Views.Startup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +46,7 @@ namespace DiabeticJournal.ViewModels.User
         public string sAInsulin;
 
         [ObservableProperty]
-        public string overNightBasalRate;
+        public double overNightBasalRate;
 
         [ObservableProperty]
         public string doctorName;
@@ -64,12 +66,16 @@ namespace DiabeticJournal.ViewModels.User
         [ObservableProperty]
         public List<BasalFactor> factorList;
 
+        [ObservableProperty]
+        public int factor;
+
 
         public RegistrationPageViewModel(Database database)
         {
             db = database;
             Title = "User Registration";
             BuildPicker();
+            basalFactorList();
             //Shell.Current.DisplayAlert("TItle", UnitList.ToString(), "OK");
         }
 
@@ -81,22 +87,63 @@ namespace DiabeticJournal.ViewModels.User
             {
                 UnitList = list;
             }
+            foreach(var unit in UnitList)
+            {
+                await Shell.Current.DisplayAlert("title", unit.Id.ToString() + ' ' + unit.Name, "OK");
+
+            }
+            return;
+        }
+
+        public async void basalFactorList()
+        {
+            List<BasalFactor> list = new List<BasalFactor>();
+            list = await db.GetFactors();
+            if (list.Count > 0)
+            {
+                FactorList = list;
+            }
+            foreach (var fact in FactorList)
+            {
+                await Shell.Current.DisplayAlert("title", fact.Id.ToString() + ' ' + fact.FactorRate.ToString(), "OK");
+
+            }
             return;
         }
 
         [ICommand]
         async void SubmitUser()
         {
+            var encryptPass = LoginPageViewModel.EncryptPass(Password);
+
+
             Models.User user = new Models.User();
             user.FirstName = FirstName;
             user.LastName = LastName;
             user.UserName = UserName;
             user.Email = Email;
-            user.Password = Password;
+            user.Password = encryptPass;
             user.Weight = Weight;
             user.TargetSugar = TargetSugar;
             user.SAInsulin = SAInsulin;
             user.FAInsulin = FAInsulin;
+            user.DoctorEmail = DoctorEmail;
+            user.DoctorName = DoctorName;
+            user.BasalFactor = BasalFactor;
+            user.OverNightBasal = OverNightBasalRate;
+            user.Units = UnitID.ToString();
+
+            var result = await db.SaveUserAsync(user);
+
+
+            if (result == 1)
+            {
+                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}", false);
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Submission Error", "There was error in submitting your profile. Please verify your information and submit again.", "ok");
+            }
         }
 
 

@@ -23,7 +23,7 @@
         </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Frame HeightRequest="45" Padding="0" Margin="40,10,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                <Picker Title="Testing Reason" ItemsSource="{Binding Test}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedType}" VerticalOptions="Center" Margin="20,0,0,0" />
+                <Picker Title="Type of Test" ItemsSource="{Binding Test}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedType}" VerticalOptions="Center" Margin="20,0,0,0" />
             </Frame>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
