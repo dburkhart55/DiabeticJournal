@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DiabeticJournal
 {
     public class Database
@@ -28,12 +29,12 @@ namespace DiabeticJournal
             else
             {
                 db = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-                var result = await db.CreateTableAsync<User>();
+                var l = await db.CreateTableAsync<User>();
                 var r = await db.CreateTableAsync<BloodRec>();
                 var e = await db.CreateTableAsync<Ratio>();
                 var s = await db.CreateTableAsync<Test>();
                 var u = await db.CreateTableAsync<Units>();
-                var f = await db.CreateTableAsync<BasalFactor>();
+                var t = await db.CreateTableAsync<BasalFactor>();
                 setDemo();
             }
 
@@ -160,7 +161,8 @@ namespace DiabeticJournal
 
                 if(user.Id != 0)
                 {
-                    return await db.UpdateAsync(user);
+                    var result = await db.UpdateAsync(user);
+                    return result;
                 }
                 else
                 {
@@ -384,6 +386,56 @@ namespace DiabeticJournal
                 Console.WriteLine(ex.Message);
             }
             return 0;
+        }
+
+        public async Task<Units> UnitsSearch(int id)
+        {
+            try
+            {
+                await Init();
+                var unitlist = await GetUnits();
+
+                foreach(var unit in unitlist)
+                {
+                    if(unit.Id == id)
+                    {
+                        return unit;
+                    }
+                }
+
+                return null;
+
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public async Task<BasalFactor> BasalFactorSearch(int id)
+        {
+            try
+            {
+                await Init();
+                var factorlist = await GetFactors();
+
+                foreach (var factor in factorlist)
+                {
+                    if (factor.Id == id)
+                    {
+                        return factor;
+                    }
+                }
+
+                return null;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }

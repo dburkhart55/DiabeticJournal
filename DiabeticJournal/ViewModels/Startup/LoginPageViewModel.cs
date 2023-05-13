@@ -106,11 +106,13 @@ namespace DiabeticJournal.ViewModels.Startup
                     if(u.UserName.ToUpper() == login.UserName.ToUpper() && u.Password == login.Password)
                     {
                         Models.User user = new Models.User();
+                        user.Id = u.Id;
                         user.UserName = u.UserName;
                         user.Password = u.Password;
                         user.Email = u.Email;
                         user.FirstName = u.FirstName;
                         user.LastName = u.LastName;
+                        await SecureStorage.Default.SetAsync("Logged_UserId", user.Id.ToString());
                         return user;
                     }
                     else

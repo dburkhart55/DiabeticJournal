@@ -37,9 +37,6 @@ namespace DiabeticJournal.ViewModels.User
         public int targetSugar;
 
         [ObservableProperty]
-        public int unitId;
-
-        [ObservableProperty]
         public string fAInsulin;
 
         [ObservableProperty]
@@ -61,13 +58,13 @@ namespace DiabeticJournal.ViewModels.User
         public List<Units> unitList;
 
         [ObservableProperty]
-        public int unitID;
+        public Units unit;
 
         [ObservableProperty]
         public List<BasalFactor> factorList;
 
         [ObservableProperty]
-        public int factor;
+        public BasalFactor factor;
 
 
         public RegistrationPageViewModel(Database database)
@@ -129,9 +126,9 @@ namespace DiabeticJournal.ViewModels.User
             user.FAInsulin = FAInsulin;
             user.DoctorEmail = DoctorEmail;
             user.DoctorName = DoctorName;
-            user.BasalFactor = BasalFactor;
+            user.BasalFactor = Factor.Id;
             user.OverNightBasal = OverNightBasalRate;
-            user.Units = UnitID.ToString();
+            user.Units = Unit.Id;
 
             var result = await db.SaveUserAsync(user);
 

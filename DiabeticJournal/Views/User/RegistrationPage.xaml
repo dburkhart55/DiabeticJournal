@@ -63,7 +63,7 @@
                 <Label Text="Units:" Margin="15,0,0,0" TextColor="White" FontSize="15" Padding="0,30,0,0"/>
 
                 <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="true" BorderColor="White" HorizontalOptions="FillAndExpand">
-                    <Picker Title="Measurement Units" ItemsSource="{Binding UnitList}" ItemDisplayBinding="{Binding Abbreviation}" SelectedItem="{Binding UnitID}" VerticalOptions="Center" Margin="20,0,0,0" />
+                    <Picker Title="Measurement Units" ItemsSource="{Binding UnitList}" ItemDisplayBinding="{Binding Abbreviation}" SelectedItem="{Binding Unit}" VerticalOptions="Center" Margin="20,0,0,0" />
                 </Frame>
             </StackLayout>
             <StackLayout Orientation="Horizontal">

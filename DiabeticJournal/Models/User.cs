@@ -22,7 +22,7 @@ namespace DiabeticJournal.Models
         public string Password { get; set; }
         public double? Weight { get; set; } = null;
         public int? TargetSugar { get; set; } = null;
-        public string Units { get; set; } = null;
+        public int? Units { get; set; } = null;
         public string FAInsulin { get; set; } = null;
         public string SAInsulin { get; set; } = null;
         public double? OverNightBasal   { get; set; } = null;
