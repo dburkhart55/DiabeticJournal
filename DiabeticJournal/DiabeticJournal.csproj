@@ -59,12 +59,33 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\CorrectionFactor\AddCFPage.xaml.cs">
+	    <DependentUpon>AddCFPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\CorrectionFactor\UserCFPage.xaml.cs">
+	    <DependentUpon>UserCFPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\CorrectionFactor\ViewCFPage.xaml.cs">
+	    <DependentUpon>ViewCFPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Dashboard\DashboardPage.xaml.cs">
 	    <DependentUpon>DashboardPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\BloodLog\BloodLogPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CorrectionFactor\AddCFPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CorrectionFactor\UserCFPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CorrectionFactor\ViewCFPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Dashboard\BloodCheckPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -1,21 +1,17 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DiabeticJournal.Views.Ratio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DiabeticJournal.Models;
+using DiabeticJournal.Views.CorrectionFactor;
 
-namespace DiabeticJournal.ViewModels.Ratio
+namespace DiabeticJournal.ViewModels.CorrectionFactor
 {
 
-    public partial class AddRatioPageViewModel : BaseViewModel
+    public partial class AddCFPageViewModel : BaseViewModel
     {
         Database db;
 
         [ObservableProperty]
-        private int _carb;
+        private int _cf;
 
         [ObservableProperty]
         private TimeSpan _start;
@@ -23,15 +19,15 @@ namespace DiabeticJournal.ViewModels.Ratio
         [ObservableProperty]
         private TimeSpan _end;
 
-        public AddRatioPageViewModel(Database database)
+        public AddCFPageViewModel(Database database)
         {
             db = database;
-            Title = "Add Carb Ratio";
+            Title = "Add Correction Factor";
             
         }
 
         [ICommand]
-        async void RatioSubmit()
+        async void CFSubmit()
         {
             var sst = Start.ToString();
             var set = End.ToString();
@@ -46,22 +42,22 @@ namespace DiabeticJournal.ViewModels.Ratio
 
 
 
-            Models.Ratio ratio = new Models.Ratio();
-            ratio.UserId = UserId;
-            ratio.CarbRate = Carb;
-            ratio.StartTime = st.ToString();
-            ratio.EndTime = et.ToString();
+            HBSCF cf = new HBSCF();
+            cf.UserId = UserId;
+            cf.CorrectionFactor = Cf;
+            cf.StartTime = st.ToString();
+            cf.EndTime = et.ToString();
 
-            int result = await db.AddRatio(ratio);
+            int result = await db.AddCF(cf);
 
             if(result == 1)
             {
                 Start = TimeSpan.Parse("00:00:00");
                 End = TimeSpan.Parse("00:00:00");
-                Carb = 0;
+                Cf = 0;
 
                 await Shell.Current.DisplayAlert("Ratio Submission", "Your new ratio has been added successfully", "ok");
-                await AppShell.Current.GoToAsync($"//{nameof(UserRatioPage)}");
+                await AppShell.Current.GoToAsync($"//{nameof(UserCFPage)}");
             }
             else
             {

@@ -35,6 +35,7 @@ namespace DiabeticJournal
                 var s = await db.CreateTableAsync<Test>();
                 var u = await db.CreateTableAsync<Units>();
                 var t = await db.CreateTableAsync<BasalFactor>();
+                var d = await db.CreateTableAsync<HBSCF>();
                 setDemo();
             }
 
@@ -133,13 +134,13 @@ namespace DiabeticJournal
                 r2.CarbRate = 3;
                 r3.StartTime = r3st.ToString();
                 r3.EndTime = r3et.ToString();
-                r3.CarbRate = 2.75;
+                r3.CarbRate = 2;
                 r4.StartTime = r4st.ToString();
                 r4.EndTime = r4et.ToString();
-                r4.CarbRate = 5.5;
+                r4.CarbRate = 5;
                 r5.StartTime = r5st.ToString();
                 r5.EndTime = r5et.ToString();
-                r5.CarbRate = 3.5;
+                r5.CarbRate = 3;
                 await AddRatio(r1);
                 await AddRatio(r2);
                 await AddRatio(r3);
@@ -192,6 +193,21 @@ namespace DiabeticJournal
         {
             await Init();
             return await db.Table<User>().ToListAsync();
+        }
+
+        public async Task<User> GetUser(int id)
+        {
+            await Init();
+            List<User> users = await db.Table<User>().ToListAsync();
+            foreach(var user in users)
+            {
+                if(user.Id == id)
+                {
+                    return user;
+                }
+
+            }
+            return null;
         }
 
 
@@ -327,15 +343,61 @@ namespace DiabeticJournal
         {
             var ratList = await GetRatiosAsync();
 
-            foreach(Ratio ratio in ratList)
-            {
-                TimeSpan st = TimeSpan.Parse(ratio.StartTime);
-                TimeSpan et = TimeSpan.Parse(ratio.EndTime);
+            var userId = await SecureStorage.Default.GetAsync("Logged_UserId");
 
-                if(st < time && time < et)
+            int UserId = Int32.Parse(userId);
+
+            foreach (Ratio ratio in ratList)
+            {
+                if(ratio.UserId == UserId)
                 {
-                    return ratio;
+                    string e = null;
+                    string s = null;
+                    ///split ratio.starttime and ratio.endtime buy " "
+                    var sta = ratio.StartTime.Split(" ");
+                    var eta = ratio.EndTime.Split(" ");
+                    if (sta[1] == "PM")
+                    {
+                        var stc = sta[0].Split(":");
+                        if (Int32.Parse(stc[0]) < 12)
+                        {
+                            var milTime = Int32.Parse(stc[0]) + 12;
+                            stc[0] = milTime.ToString();
+                        }
+
+                        s = stc[0]+":"+stc[1];
+                    }
+                    else
+                    {
+                        s = sta[0];
+                    }
+
+                    if (eta[1] == "PM")
+                    {
+                        var etc = eta[0].Split(":");
+                        if (Int32.Parse(etc[0]) < 12)
+                        {
+                            var eMilTime = Int32.Parse(etc[0])+12;
+                            etc[0] = eMilTime.ToString();
+                        }
+
+                        e = etc[0]+":"+etc[1];
+                    }
+                    else
+                    {
+                        e = eta[0];
+                    }
+
+
+                    TimeSpan st = TimeSpan.Parse(s);
+                    TimeSpan et = TimeSpan.Parse(e);
+
+                    if (st < time && time < et)
+                    {
+                        return ratio;
+                    }
                 }
+                
             }
             return null;
 
@@ -358,7 +420,7 @@ namespace DiabeticJournal
             return null;
         }
 
-        public async Task<int> DeleteRatio(Models.Ratio ratio)
+        public async Task<int> DeleteRatio(Ratio ratio)
         {
             try
             {
@@ -373,7 +435,7 @@ namespace DiabeticJournal
             return 0;
         }
 
-        public async Task<int> UpdateRatio(Models.Ratio ratio)
+        public async Task<int> UpdateRatio(Ratio ratio)
         {
             try
             {
@@ -436,6 +498,161 @@ namespace DiabeticJournal
                 Console.WriteLine(ex.Message);
                 return null;
             }
+        }
+
+
+        public async Task<int> AddCF(HBSCF cf)
+        {
+            int result = 0;
+            try
+            {
+                // enter this line
+                await Init();
+
+
+                // enter this line
+                result = await db.InsertAsync(cf);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+
+            return result;
+        }
+
+        public async Task<List<HBSCF>> GetCFAsync()
+        {
+
+            try
+            {
+                await Init();
+
+                List<HBSCF> CFList = await db.Table<HBSCF>().ToListAsync();
+
+                return CFList;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
+        public async Task<HBSCF> GetCFByTime(TimeSpan time)
+        {
+            var cfList = await GetCFAsync();
+            var userId = await SecureStorage.Default.GetAsync("Logged_UserId");
+
+            int UserId = Int32.Parse(userId);
+
+
+            foreach (HBSCF cf in cfList)
+            {
+                if(cf.UserId == UserId)
+                {
+                    string e = null;
+                    string s = null;
+                    ///split ratio.starttime and ratio.endtime buy " "
+                    var sta = cf.StartTime.Split(" ");
+                    var eta = cf.EndTime.Split(" ");
+                    if (sta[1] == "PM")
+                    {
+                        var stc = sta[0].Split(":");
+                        if (Int32.Parse(stc[0]) < 12)
+                        {
+                            var milTime = Int32.Parse(stc[0]) + 12;
+                            stc[0] = milTime.ToString();
+                        }
+
+                        s = stc[0]+":"+stc[1];
+                    }
+                    else
+                    {
+                        s = sta[0];
+                    }
+
+                    if (eta[1] == "PM")
+                    {
+                        var etc = eta[0].Split(":");
+                        if (Int32.Parse(etc[0]) < 12)
+                        {
+                            var eMilTime = Int32.Parse(etc[0])+12;
+                            etc[0] = eMilTime.ToString();
+                        }
+
+                        e = etc[0]+":"+etc[1];
+                    }
+                    else
+                    {
+                        e = eta[0];
+                    }
+
+
+                    TimeSpan st = TimeSpan.Parse(s);
+                    TimeSpan et = TimeSpan.Parse(e);
+
+                    if (st < time && time < et)
+                    {
+                        return cf;
+                    }
+                }
+                
+            }
+            return null;
+                
+
+        }
+
+        public async Task<HBSCF> GetCF(int id)
+        {
+            try
+            {
+                await Init();
+
+                HBSCF cf = await db.Table<HBSCF>().Where(v => v.Id == id).FirstOrDefaultAsync();
+
+                return cf;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
+        }
+
+        public async Task<int> DeleteCF(HBSCF cf)
+        {
+            try
+            {
+                await Init();
+
+                return await db.DeleteAsync(cf);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return 0;
+        }
+
+        public async Task<int> UpdateCF(HBSCF cf)
+        {
+            try
+            {
+                await Init();
+
+                return await db.UpdateAsync(cf);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return 0;
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DiabeticJournal.Models;
 using CommunityToolkit.Mvvm.Input;
 using DiabeticJournal.Views.Ratio;
+using DiabeticJournal.Models;
 
 namespace DiabeticJournal.ViewModels.Ratio
 {
@@ -21,10 +22,10 @@ namespace DiabeticJournal.ViewModels.Ratio
         Models.Ratio ratio = new Models.Ratio();
 
         [ObservableProperty]
-        TimeSpan startTime = new TimeSpan();
+        TimeSpan startTime;
 
         [ObservableProperty]
-        TimeSpan endTime = new TimeSpan();
+        TimeSpan endTime;
 
 
 
@@ -42,9 +43,19 @@ namespace DiabeticJournal.ViewModels.Ratio
         [ICommand]
         public async void UpdateRatio()
         {
+           
             int response = -1;
             if(Ratio.Id > 0)
             {
+                var sst = StartTime.ToString();
+                var set = EndTime.ToString();
+
+                TimeOnly st = TimeOnly.Parse(sst);
+                TimeOnly et = TimeOnly.Parse(set);
+                Ratio.StartTime = st.ToString();
+                Ratio.EndTime = et.ToString();
+
+
                 response = await db.UpdateRatio(Ratio);
 
                 if (response == 1)

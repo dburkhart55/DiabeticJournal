@@ -2,10 +2,14 @@
 using DiabeticJournal.ViewModels.Ratio;
 using DiabeticJournal.ViewModels.Startup;
 using DiabeticJournal.ViewModels.User;
+using DiabeticJournal.ViewModels.CorrectionFactor;
 using DiabeticJournal.Views.Dashboard;
 using DiabeticJournal.Views.Ratio;
 using DiabeticJournal.Views.Startup;
 using DiabeticJournal.Views.User;
+using DiabeticJournal.Views.CorrectionFactor;
+using DiabeticJournal.Views.BloodLog;
+using DiabeticJournal.ViewModels.BloodLog;
 using Microsoft.Extensions.DependencyInjection;
 using SQLite;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -39,6 +43,12 @@ public static class MauiProgram
         builder.Services.AddSingleton<ViewRatioPage>();
         builder.Services.AddSingleton<AddRatioPage>();
         builder.Services.AddSingleton<RegistrationPage>();
+        builder.Services.AddSingleton<UserCFPage>();
+        builder.Services.AddSingleton<ViewCFPage>();
+        builder.Services.AddSingleton<AddCFPage>();
+        builder.Services.AddSingleton<BloodLogPage>();
+
+
 
         //View Models
         builder.Services.AddSingleton<LoginPageViewModel>();
@@ -48,6 +58,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<ViewRatioPageViewModel>();
         builder.Services.AddSingleton<AddRatioPageViewModel>();
         builder.Services.AddSingleton<RegistrationPageViewModel>();
+        builder.Services.AddSingleton<UserCFPageViewModel>();
+        builder.Services.AddSingleton<AddCFPageViewModel>();
+        builder.Services.AddSingleton<ViewCFPageViewModel>();
+        builder.Services.AddSingleton<BloodLogPageViewModel>();
 
         builder.Services.AddSingleton<Database>();
 

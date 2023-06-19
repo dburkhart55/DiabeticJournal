@@ -66,11 +66,6 @@ namespace DiabeticJournal.ViewModels.Startup
         }
         #endregion
 
-       /* [ICommand]
-        async void RegisterNav()
-        {
-
-        }*/
 
         public static string EncryptPass(string pass)
         {
@@ -99,26 +94,26 @@ namespace DiabeticJournal.ViewModels.Startup
             
             List<Models.User> UserList = await db.GetUsers();
 
+
             if(UserList.Count > 0)
             {
-                foreach(Models.User u in UserList)
+                foreach(var u in UserList)
                 {
-                    if(u.UserName.ToUpper() == login.UserName.ToUpper() && u.Password == login.Password)
+                   
+                    
+                    
+
+                    if (u.UserName.ToUpper() == login.UserName.ToUpper())
                     {
-                        Models.User user = new Models.User();
-                        user.Id = u.Id;
-                        user.UserName = u.UserName;
-                        user.Password = u.Password;
-                        user.Email = u.Email;
-                        user.FirstName = u.FirstName;
-                        user.LastName = u.LastName;
-                        await SecureStorage.Default.SetAsync("Logged_UserId", user.Id.ToString());
-                        return user;
+                        if(u.Password == login.Password)
+                        {
+                            
+                            await SecureStorage.Default.SetAsync("Logged_UserId", u.Id.ToString());
+                            return u;
+                        }
+                        
                     }
-                    else
-                    {
-                        return null;
-                    }
+                    
                 }
             }
 

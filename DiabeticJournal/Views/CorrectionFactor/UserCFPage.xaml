@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model ="clr-namespace:DiabeticJournal.Models"
+             xmlns:viewModels ="clr-namespace:DiabeticJournal.ViewModels.CorrectionFactor"
+             x:Class="DiabeticJournal.Views.CorrectionFactor.UserCFPage"
+             Title="{Binding Title}"
+             BackgroundColor="Black">
+    <VerticalStackLayout>
+        <StackLayout Margin="10">
+            <Button Text="Add Ratio" Command="{Binding AddCFCommand}" HorizontalOptions="EndAndExpand" />
+
+            <CollectionView ItemsSource="{Binding CFs}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:HBSCF">
+                        <Frame Margin="10" Padding="10">
+                            <StackLayout >
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="{Binding StartTime}" FontSize="18" FontAttributes="Bold" />
+                                    <Label Text="{Binding EndTime}" FontSize="18" FontAttributes="Bold" />
+                                    <Label Text="{Binding CorrectionFactor}" FontSize="18" FontAttributes="Bold" />
+                                </HorizontalStackLayout>
+                 
+                            </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:UserCFPageViewModel}},Path=DisplayActionCommand}"
+                                                  CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+        
+    </VerticalStackLayout>
+</ContentPage>

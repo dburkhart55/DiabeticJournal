@@ -33,12 +33,19 @@ namespace DiabeticJournal.ViewModels.Ratio
         {
             Ratios.Clear();
             var ratioList = await db.GetRatiosAsync();
-            if(ratioList?.Count > 0)
+            string userId = await SecureStorage.Default.GetAsync("Logged_UserId");
+            int UserId = Int32.Parse(userId);
+            if (ratioList.Count > 0)
             {
+                
                 ratioList = ratioList.OrderBy(f => f.StartTime).ToList();
                 foreach(var ratio in ratioList)
                 {
-                    Ratios.Add(ratio);
+                    if(ratio.UserId == UserId)
+                    {
+                        Ratios.Add(ratio);
+
+                    }
                 }
             }
         }

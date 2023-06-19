@@ -8,6 +8,9 @@
     xmlns:dashboardPages="clr-namespace:DiabeticJournal.Views.Dashboard"
     xmlns:startupPages="clr-namespace:DiabeticJournal.Views.Startup"
     xmlns:ratioPages="clr-namespace:DiabeticJournal.Views.Ratio"
+    xmlns:cfPages="clr-namespace:DiabeticJournal.Views.CorrectionFactor"
+    xmlns:bloodLogPages="clr-namespace:DiabeticJournal.Views.BloodLog"
+    xmlns:UserPages="clr-namespace:DiabeticJournal.Views.User"
     >
 
     <ShellContent
@@ -23,8 +26,8 @@
             Route="Dashboard"/>
         <ShellContent
             Title="User Settings"
-            ContentTemplate="{DataTemplate dashboardPages:DashboardPage}"
-            Route="#"/>
+            ContentTemplate="{DataTemplate UserPages:UserSettingPage}"
+            Route="UserSettingPage"/>
         <ShellContent
             Title="User Ratios"
             ContentTemplate="{DataTemplate ratioPages:UserRatioPage}"
@@ -36,8 +39,12 @@
             Route="BloodCheckPage"/>
         <ShellContent
             Title="Blood Sugar Log"
-            ContentTemplate="{DataTemplate dashboardPages:DashboardPage}"
-            Route="#"/>
+            ContentTemplate="{DataTemplate bloodLogPages:BloodLogPage}"
+            Route="BloodLogPage"/>
+        <ShellContent
+            Title="User Correction Factor"
+            ContentTemplate="{DataTemplate cfPages:UserCFPage}"
+            Route="UserCFPage"/>
     </FlyoutItem>
 
     <Shell.FlyoutFooter>

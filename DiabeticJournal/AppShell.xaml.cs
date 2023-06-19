@@ -4,6 +4,8 @@ using DiabeticJournal.ViewModels.Startup;
 using DiabeticJournal.Views.Dashboard;
 using DiabeticJournal.Views.Ratio;
 using DiabeticJournal.Views.User;
+using DiabeticJournal.Views.CorrectionFactor;
+using DiabeticJournal.Views.BloodLog;
 using DiabeticJournal.ViewModels.User;
 
 namespace DiabeticJournal;
@@ -28,6 +30,10 @@ public partial class AppShell : Shell
 		Routing.RegisterRoute(nameof(ViewRatioPage), typeof(ViewRatioPage));
 		Routing.RegisterRoute(nameof(AddRatioPage), typeof(AddRatioPage));
 		Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
+		Routing.RegisterRoute(nameof(UserCFPage), typeof(UserCFPage));
+		Routing.RegisterRoute(nameof(AddCFPage), typeof(AddCFPage));
+        Routing.RegisterRoute(nameof(ViewCFPage), typeof(ViewCFPage));
+        Routing.RegisterRoute(nameof(BloodLogPage), typeof(BloodLogPage));
 
 	}
 

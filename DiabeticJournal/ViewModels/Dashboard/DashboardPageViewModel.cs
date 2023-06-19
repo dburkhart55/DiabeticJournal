@@ -2,6 +2,9 @@
 using CommunityToolkit.Mvvm.Input;
 using DiabeticJournal.Views.Dashboard;
 using DiabeticJournal.Views.Ratio;
+using DiabeticJournal.Views.CorrectionFactor;
+using DiabeticJournal.Views.User;
+using DiabeticJournal.Views.BloodLog;
 using System;
 using System.Collections.Generic;
 using System.Formats.Asn1;
@@ -31,6 +34,24 @@ namespace DiabeticJournal.ViewModels.Dashboard
         {
             await Shell.Current.GoToAsync($"//{nameof(UserRatioPage)}");
         }
-        
+
+        [ICommand]
+        async void UserSettingNav()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(UserSettingPage)}");
+        }
+
+        [ICommand]
+        async void UserCFNav()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(UserCFPage)}");
+        }
+
+        [ICommand]
+        async void BloodLogNav()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(BloodLogPage)}");
+        }
+
     }
 }

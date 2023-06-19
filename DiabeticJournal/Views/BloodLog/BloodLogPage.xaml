@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiabeticJournal.Views.BloodLog.BloodLogPage"
+             xmlns:model="clr-namespace:DiabeticJournal.Models"
+             Title="{Binding Title}"
+             BackgroundColor="Black">
+    <VerticalStackLayout>
+        <StackLayout Margin="10">
+            <CollectionView ItemsSource="{Binding Recs}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:BloodRec">
+                        <Frame Margin="10" Padding="10">
+                            <StackLayout>
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" FontSize="14" FontAttributes="Bold" />
+                                    <Label Text="{Binding Time}"  FontSize="14" FontAttributes="Bold" />
+                                    <Label Text="{Binding Sugar}"  FontSize="14" FontAttributes="Bold" />
+                                    <Label Text="{Binding Comment}"  FontSize="14" FontAttributes="Bold" />
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

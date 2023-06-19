@@ -14,9 +14,9 @@
             Margin="0,40,0,100"/>
         <Button Margin="0,0,0,10" Text="Add Blood Sugar" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" Command="{Binding BloodCheckNavCommand}"/>
         <Button Margin="0,0,0,10" Text="User Ratios" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" Command="{Binding UserRatioNavCommand}"/>
-        <Button Margin="0,0,0,10" Text="Blood Sugar Log" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" />
-        <Button Margin="0,0,0,10" Text="User Settings" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray"/>
-        <Button Margin="0,0,0,10" Text="User Ratios" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" />
+        <Button Margin="0,0,0,10" Text="Blood Sugar Log" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" Command="{Binding BloodLogNavCommand}"/>
+        <Button Margin="0,0,0,10" Text="User Settings" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" Command="{Binding UserSettingNavCommand}"/>
+        <Button Margin="0,0,0,10" Text="User Correction Factors" FontSize="20" TextColor="White" HeightRequest="80" WidthRequest="300" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="DimGray" Command="{Binding UserCFNavCommand}"/>
 
     </StackLayout>
 </ContentPage>

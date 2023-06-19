@@ -31,7 +31,7 @@
                 <Image Source="padlock.png" HeightRequest="28" WidthRequest="28" />
             </Frame>
             <Frame HeightRequest="45" Padding="0" Margin="-20,0,0,0" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
-                <handlers:BorderlessEntry Text="{Binding Password}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Password" Keyboard="Email" />
+                <handlers:BorderlessEntry Text="{Binding Password}" VerticalOptions="Center" Margin="20,0,0,0" IsPassword="True" Placeholder="Password" Keyboard="Default" />
             </Frame>
         </StackLayout>
 

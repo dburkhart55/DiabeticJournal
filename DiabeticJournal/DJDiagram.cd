@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DiabeticJournal.Handlers.BorderlessEntry" Collapsed="true">
+    <Position X="35.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Handlers\BorderlessEntry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Models.BasalFactor" Collapsed="true">
+    <Position X="39.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Models\BasalFactor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Models.BloodRec" Collapsed="true">
+    <Position X="34" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAIAAAAAAAAAEAAgCAABAAAABAAAAAAAAAQA=</HashCode>
+      <FileName>Models\BloodRec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Models.HBSCF" Collapsed="true">
+    <Position X="34" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgAAAAAAAAAAAAAAAgAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\HBSCF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Models.Ratio" Collapsed="true">
+    <Position X="34" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAgAIAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Ratio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Models.Test" Collapsed="true">
+    <Position X="37.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Test.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Models.Units" Collapsed="true">
+    <Position X="39.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAABAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Units.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Models.User" Collapsed="true">
+    <Position X="41" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAEAACCAAAAAAAAAAAAQAECAAQAACEwAACAAAQAg=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.MainActivity" Collapsed="true">
+    <Position X="37.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\MainActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.MainApplication" Collapsed="true">
+    <Position X="39.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\MainApplication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.App" Collapsed="true">
+    <Position X="35.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.AppShell" Collapsed="true">
+    <Position X="37.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppShell.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Constants" Collapsed="true">
+    <Position X="37.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAIAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Database" Collapsed="true">
+    <Position X="41" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAgIASCACABBEAAAACYAEAMABBEAASAAIEAAA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.FileAccessHelper" Collapsed="true">
+    <Position X="32.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>FileAccessHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.MainPage" Collapsed="true">
+    <Position X="41" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.MauiProgram" Collapsed="true">
+    <Position X="32.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MauiProgram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.BloodLog.BloodLogPageViewModel" Collapsed="true">
+    <Position X="14" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BloodLog\BloodLogPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.CorrectionFactor.AddCFPageViewModel" Collapsed="true">
+    <Position X="18.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAYgAAAAAAAAAAAAAAAAAAAAAAAAAQBAAA=</HashCode>
+      <FileName>ViewModels\CorrectionFactor\AddCFPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.CorrectionFactor.UserCFPageViewModel" Collapsed="true">
+    <Position X="23" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAQAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ViewModels\CorrectionFactor\UserCFPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.CorrectionFactor.ViewCFPageViewModel" Collapsed="true">
+    <Position X="27.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQCAAAAAAgACAAIAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\CorrectionFactor\ViewCFPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.Dashboard.BloodCheckPageViewModel" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAEEAwAAAABAAAAAAABCAAAAAAFAAgAAAAAAA=</HashCode>
+      <FileName>ViewModels\Dashboard\BloodCheckPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.Dashboard.DashboardPageViewModel" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAACAAABAAAAAAAAAAAAAEAAAAAQAAA=</HashCode>
+      <FileName>ViewModels\Dashboard\DashboardPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.Ratio.AddRatioPageViewModel" Collapsed="true">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQgAAAAAAAAAAAAAAAIAAAEAAAAAQAAAA=</HashCode>
+      <FileName>ViewModels\Ratio\AddRatioPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.Ratio.UserRatioPageViewModel" Collapsed="true">
+    <Position X="16.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAACAAAgAAAAAEAAQ=</HashCode>
+      <FileName>ViewModels\Ratio\UserRatioPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.Ratio.ViewRatioPageViewModel" Collapsed="true">
+    <Position X="20.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQCAAAAAAgACAAAAAAAAAIAAAgAAAAAAA=</HashCode>
+      <FileName>ViewModels\Ratio\ViewRatioPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.Startup.LoginPageViewModel" Collapsed="true">
+    <Position X="25.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAAAAAAIIAAAAAAAABAAAAIAQAAAAAAA=</HashCode>
+      <FileName>ViewModels\Startup\LoginPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.User.RegistrationPageViewModel" Collapsed="true">
+    <Position X="29.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQBAAAACCABwQAggAABAAAAABAAAAAAoAEAACgUAAAA=</HashCode>
+      <FileName>ViewModels\User\RegistrationPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.User.UserSettingsPageViewModel" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQBAAAACCABwQAggAIBAAAAAAAAAAAAoAEAACgUAAAA=</HashCode>
+      <FileName>ViewModels\User\UserSettingsPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.AppShellViewModel" Collapsed="true">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AppShellViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.ViewModels.BaseViewModel" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.BloodLog.BloodLogPage" Collapsed="true">
+    <Position X="32.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\BloodLog\BloodLogPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.CorrectionFactor.AddCFPage" Collapsed="true">
+    <Position X="32.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CorrectionFactor\AddCFPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.CorrectionFactor.UserCFPage" Collapsed="true">
+    <Position X="32.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAQAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CorrectionFactor\UserCFPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.CorrectionFactor.ViewCFPage" Collapsed="true">
+    <Position X="37.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CorrectionFactor\ViewCFPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.Dashboard.BloodCheckPage" Collapsed="true">
+    <Position X="41" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dashboard\BloodCheckPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.Dashboard.DashboardPage" Collapsed="true">
+    <Position X="39.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Dashboard\DashboardPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.Ratio.AddRatioPage" Collapsed="true">
+    <Position X="34" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Ratio\AddRatioPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.Ratio.UserRatioPage" Collapsed="true">
+    <Position X="34" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAQAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Ratio\UserRatioPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.Ratio.ViewRatioPage" Collapsed="true">
+    <Position X="39.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Ratio\ViewRatioPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.Startup.LoginPage" Collapsed="true">
+    <Position X="35.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Startup\LoginPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.User.RegistrationPage" Collapsed="true">
+    <Position X="35.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\User\RegistrationPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiabeticJournal.Views.User.UserSettingPage" Collapsed="true">
+    <Position X="35.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\User\UserSettingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

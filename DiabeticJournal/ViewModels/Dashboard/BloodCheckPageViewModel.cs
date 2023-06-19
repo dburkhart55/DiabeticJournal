@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DiabeticJournal.Models;
+using DiabeticJournal.Views.CorrectionFactor;
+using DiabeticJournal.Views.Dashboard;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,26 +14,26 @@ namespace DiabeticJournal.ViewModels.Dashboard
     public partial class BloodCheckPageViewModel : BaseViewModel
     {
         [ObservableProperty]
-        private List<Test> _test;
+        public List<Test> _test;
 
         [ObservableProperty]
-        private int? _bloodSugar = null;
+        public int _bloodSugar;
 
         [ObservableProperty]
-        private DateTime _date = DateTime.Now;
+        public DateTime _date = DateTime.Now;
 
         [ObservableProperty]
-        private TimeSpan _time;
+        public TimeSpan _time;
 
 
         [ObservableProperty]
-        private Test _selectedType;
+        public Test _selectedType;
 
         [ObservableProperty]
-        private int? _carbs = null;
+        public int? _carbs = null;
 
         [ObservableProperty]
-        private string? _comment = null;
+        public string? _comment = null;
 
         Database db;
 
@@ -60,26 +62,106 @@ namespace DiabeticJournal.ViewModels.Dashboard
         [ICommand]
         async void Calculate()
         {
-           
 
-            App.Current.MainPage.DisplayAlert("testing", BloodSugar.ToString() + " " + Date.ToString() + " " + Time.ToString() + " " + SelectedType.Name + " " + Carbs.ToString() + " " + Comment, "OK");
+            var userId = await SecureStorage.Default.GetAsync("Logged_UserId");
 
-            Models.Ratio ratio = await db.GetRatioByTime(Time);
+            int UserId = Int32.Parse(userId);
 
-            App.Current.MainPage.DisplayAlert("testing", ratio.StartTime + " " + ratio.CarbRate + " " + ratio.EndTime, "OK");
-            
-            /* switch(SelectedType.Name) 
+            switch (SelectedType.Name) 
             {
                 case "Bolus":
-                    Ratio ratio = await db.
-                    int insulin = Carbs/
+                    Models.Ratio ratio = await db.GetRatioByTime(Time);
+                    var carbRate = ratio.CarbRate;
+                    int insulin = (int)Carbs/carbRate;
+                    await Shell.Current.DisplayAlert("Meal Bolus","Your meal time bolus is: " + insulin.ToString(), "ok");
+
+                    var sst = Time.ToString();
+                    TimeOnly time = TimeOnly.Parse(sst);
+
+                    BloodRec rec = new BloodRec();
+                    rec.Carbs = carbRate;
+                    rec.UserId = UserId;
+                    rec.Date = DateTime.Now;
+                    rec.Time = time.ToString();
+                    rec.Sugar = BloodSugar;
+                    rec.TestId = SelectedType.Id;
+                    rec.Insulin = insulin;
+                    rec.Comment = Comment;
+                    var result = await db.AddBloodRec(rec);
+
+                    if(result == 1)
+                    {
+                        ClearForm();
+                        await AppShell.Current.GoToAsync($"//{nameof(DashboardPage)}");
+                    }
                     break;
                 case "High Blood Sugar Correction":
+                   
+                    
+                    HBSCF cf = await db.GetCFByTime(Time);
+                    Models.User user = await db.GetUser(UserId);
+                    int target = (int)user.TargetSugar;
+                    var rate = cf.CorrectionFactor;
+                    int diff = BloodSugar - target;
+                    int correction = diff/rate;
+                    await Shell.Current.DisplayAlert("Correction","Your correction is: " + correction.ToString(), "ok");
+
+                    var st = Time.ToString();
+                    TimeOnly time1 = TimeOnly.Parse(st);
+
+                    BloodRec rec1 = new BloodRec();
+                    
+                    rec1.UserId = UserId;
+                    rec1.Date = DateTime.Now;
+                    rec1.Time = time1.ToString();
+                    rec1.Sugar = BloodSugar;
+                    rec1.TestId = SelectedType.Id;
+                    rec1.Insulin = correction;
+                    rec1.Comment = Comment;
+                    var result1 = await db.AddBloodRec(rec1);
+
+                    if (result1 == 1)
+                    {
+                        ClearForm();
+                        await AppShell.Current.GoToAsync($"//{nameof(DashboardPage)}");
+                    }
                     break;
                 case "Standard Check":
-                    break;
-            }*/
+                    await Shell.Current.DisplayAlert("Logged", "Your blood sugar has been logged.", "ok");
 
+                    var t = Time.ToString();
+                    TimeOnly time2 = TimeOnly.Parse(t);
+
+                    BloodRec rec2 = new BloodRec();
+                    
+                    rec2.UserId = UserId;
+                    rec2.Date = DateTime.Now;
+                    rec2.Time = time2.ToString();
+                    rec2.Sugar = BloodSugar;
+                    rec2.TestId = SelectedType.Id;
+                    
+                    rec2.Comment = Comment;
+                    var result2 = await db.AddBloodRec(rec2);
+
+                    if (result2 == 1)
+                    {
+                        ClearForm();
+                        await AppShell.Current.GoToAsync($"{nameof(DashboardPage)}");
+                    }
+                    break;
+            }
+
+        }
+
+
+        async void ClearForm()
+        {
+            
+            BloodSugar = 0;
+            Time = TimeSpan.Parse("00:00");
+            SelectedType = null;
+            Carbs = 0;
+            Comment = null;
         }
     }
 }
