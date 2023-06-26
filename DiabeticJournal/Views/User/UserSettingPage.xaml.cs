@@ -9,4 +9,7 @@ public partial class UserSettingPage : ContentPage
 		InitializeComponent();
 		this.BindingContext = viewModel;
 	}
+
+
+
 }

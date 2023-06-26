@@ -94,7 +94,7 @@ namespace DiabeticJournal.ViewModels.User
                     Email = user.Email;
                     Weight = (double)user.Weight;
                     TargetSugar = (int)user.TargetSugar;
-                    Unit = await db.UnitsSearch((int)user.Units);
+                    Unit = await db.UnitsSearch(user.Units);
                     FAInsulin = user.FAInsulin;
                     SAInsulin = user.SAInsulin;
                     OverNightBasalRate = (double)user.OverNightBasal;
@@ -118,11 +118,11 @@ namespace DiabeticJournal.ViewModels.User
             {
                 UnitList = list;
             }
-            foreach (var unit in UnitList)
+            /*foreach (var unit in UnitList)
             {
                 await Shell.Current.DisplayAlert("title", unit.Id.ToString() + ' ' + unit.Name, "OK");
 
-            }
+            }*/
             return;
         }
 
@@ -134,11 +134,11 @@ namespace DiabeticJournal.ViewModels.User
             {
                 FactorList = list;
             }
-            foreach (var fact in FactorList)
+            /*foreach (var fact in FactorList)
             {
                 await Shell.Current.DisplayAlert("title", fact.Id.ToString() + ' ' + fact.FactorRate.ToString(), "OK");
 
-            }
+            }*/
             return;
         }
     }

@@ -57,6 +57,16 @@ namespace DiabeticJournal
                 testUser.UserName = "DSchmidt";
                 testUser.Password = LoginPageViewModel.EncryptPass("test");
                 testUser.Email = "DRBVSTest@gmail.com";
+                testUser.Weight = 200;
+                testUser.TargetSugar = 100;
+                testUser.Units = 1;
+                testUser.FAInsulin = "Novalog";
+                testUser.SAInsulin = "Humalog";
+                testUser.OverNightBasal = 30;
+                testUser.DoctorName = "Nobody";
+                testUser.DoctorEmail = "none@none.com";
+                testUser.BasalFactor = .3;
+                testUser.DailyRequirement = 50;
                 await SaveUserAsync(testUser);
             }
 

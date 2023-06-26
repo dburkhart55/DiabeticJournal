@@ -22,14 +22,14 @@ namespace DiabeticJournal.Models
         public string Password { get; set; }
         public double? Weight { get; set; } = null;
         public int? TargetSugar { get; set; } = null;
-        public int? Units { get; set; } = null;
+        public int Units { get; set; }
         public string FAInsulin { get; set; } = null;
         public string SAInsulin { get; set; } = null;
         public double? OverNightBasal   { get; set; } = null;
         public string DoctorName { get; set; } = null;
         public string DoctorEmail { get; set; } = null;
         public double? BasalFactor { get; set; } = null;
-        public int DailyRequirement { get; set; }
+        public int? DailyRequirement { get; set; } = null;
         
 
     }

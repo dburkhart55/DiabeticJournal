@@ -40,7 +40,10 @@ namespace DiabeticJournal.ViewModels.BloodLog
                 {
                     if (rec.UserId == UserId)
                     {
-                       
+                       if(rec.Insulin == 0)
+                        {
+                            rec.Insulin = 0;
+                        }
                         
                         Recs.Add(rec);
 

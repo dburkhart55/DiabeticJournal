@@ -84,11 +84,11 @@ namespace DiabeticJournal.ViewModels.User
             {
                 UnitList = list;
             }
-            foreach(var unit in UnitList)
+            /*foreach(var unit in UnitList)
             {
                 await Shell.Current.DisplayAlert("title", unit.Id.ToString() + ' ' + unit.Name, "OK");
 
-            }
+            }*/
             return;
         }
 
@@ -100,11 +100,11 @@ namespace DiabeticJournal.ViewModels.User
             {
                 FactorList = list;
             }
-            foreach (var fact in FactorList)
+            /*foreach (var fact in FactorList)
             {
                 await Shell.Current.DisplayAlert("title", fact.Id.ToString() + ' ' + fact.FactorRate.ToString(), "OK");
 
-            }
+            }*/
             return;
         }
 

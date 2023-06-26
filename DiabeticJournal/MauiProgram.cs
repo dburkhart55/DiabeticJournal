@@ -47,6 +47,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ViewCFPage>();
         builder.Services.AddSingleton<AddCFPage>();
         builder.Services.AddSingleton<BloodLogPage>();
+        builder.Services.AddSingleton<UserSettingPage>();
 
 
 
@@ -62,6 +63,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<AddCFPageViewModel>();
         builder.Services.AddSingleton<ViewCFPageViewModel>();
         builder.Services.AddSingleton<BloodLogPageViewModel>();
+        builder.Services.AddSingleton<UserSettingsPageViewModel>();
 
         builder.Services.AddSingleton<Database>();
 

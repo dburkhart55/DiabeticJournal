@@ -67,6 +67,8 @@ namespace DiabeticJournal.ViewModels.Dashboard
 
             int UserId = Int32.Parse(userId);
 
+
+
             switch (SelectedType.Name) 
             {
                 case "Bolus":

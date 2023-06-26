@@ -7,16 +7,19 @@
              BackgroundColor="Black">
     <VerticalStackLayout>
         <StackLayout Orientation="Horizontal">
+            <Label Text="Carb Rate:" FontSize="14" TextColor="White" Margin="10,30,0,0"/>
             <Frame HeightRequest="45" Padding="0" Margin="40,20,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
                 <handlers:BorderlessEntry Text="{Binding Carb}" VerticalOptions="Center" Margin="20,0,0,0" Placeholder="Carb Rate" Keyboard="Numeric"/>
             </Frame>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
+            <Label Text="Start Time:" FontSize="14" TextColor="White" Margin="10,20,0,0"/>
             <Frame HeightRequest="45" Padding="0" Margin="40,10,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
                 <TimePicker Time="{Binding Start}" VerticalOptions="Center" Margin="20,0,0,0" />
             </Frame>
         </StackLayout>
         <StackLayout Orientation="Horizontal">
+            <Label Text="End Time:" FontSize="14" TextColor="White" Margin="10,20,0,0"/>
             <Frame HeightRequest="45" Padding="0" Margin="40,10,40,10" HasShadow="True" BorderColor="White" HorizontalOptions="FillAndExpand">
                 <TimePicker Time="{Binding End}" VerticalOptions="Center" Margin="20,0,0,0" />
             </Frame>

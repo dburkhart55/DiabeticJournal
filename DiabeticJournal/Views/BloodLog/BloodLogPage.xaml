@@ -6,6 +6,13 @@
              Title="{Binding Title}"
              BackgroundColor="Black">
     <VerticalStackLayout>
+        <StackLayout Orientation="Horizontal" >
+            <Label Text="Date" FontSize="14" Margin="25,0,15,5" TextColor="White"></Label>
+            <Label Text="Time" FontSize="14" Margin="35,0,30,5" TextColor="White"></Label>
+            <Label Text="Blood Sugar" FontSize="14" Margin="0,0,15,5" TextColor="White"></Label>
+            <Label Text="Insulin" FontSize="14" Margin="0,0,10,5" TextColor="White"></Label>
+            <Label Text="Comment" FontSize="14" Margin="0,0,0,5" TextColor="White"></Label>
+        </StackLayout>
         <StackLayout Margin="10">
             <CollectionView ItemsSource="{Binding Recs}">
                 <CollectionView.ItemTemplate>
@@ -14,9 +21,10 @@
                             <StackLayout>
                                 <HorizontalStackLayout Spacing="10">
                                     <Label Text="{Binding Date, StringFormat='{}{0:MM/dd/yyyy}'}" FontSize="14" FontAttributes="Bold" />
-                                    <Label Text="{Binding Time}"  FontSize="14" FontAttributes="Bold" />
-                                    <Label Text="{Binding Sugar}"  FontSize="14" FontAttributes="Bold" />
-                                    <Label Text="{Binding Comment}"  FontSize="14" FontAttributes="Bold" />
+                                    <Label Text="{Binding Time}"   FontSize="14" FontAttributes="Bold" />
+                                    <Label Text="{Binding Sugar}" Margin="10,0,0,0" FontSize="14" FontAttributes="Bold" />
+                                    <Label Text="{Binding Insulin}" Margin="40,0,0,0" FontSize="14" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Comment}" Margin="40,0,0,0" FontSize="14" FontAttributes="Bold" />
                                 </HorizontalStackLayout>
                             </StackLayout>
                         </Frame>
