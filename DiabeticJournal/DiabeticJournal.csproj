@@ -77,6 +77,9 @@
 	  <MauiXaml Update="Views\BloodLog\BloodLogPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\BloodLog\ViewBloodRecPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\CorrectionFactor\AddCFPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

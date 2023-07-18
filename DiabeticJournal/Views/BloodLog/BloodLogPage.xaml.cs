@@ -1,6 +1,8 @@
-
+using CommunityToolkit.Mvvm.Input;
+using DiabeticJournal.Models;
 using DiabeticJournal.ViewModels.BloodLog;
-using DiabeticJournal.ViewModels.CorrectionFactor;
+using static System.Net.Mime.MediaTypeNames;
+using System.Globalization;
 
 namespace DiabeticJournal.Views.BloodLog;
 
@@ -19,5 +21,21 @@ public partial class BloodLogPage : ContentPage
     {
         base.OnAppearing();
         _viewModel.GetRecList();
+    }
+
+    private async void RecTapped(object sender, ItemTappedEventArgs e)
+    {
+        var rec = (BloodRec)e.Item;
+
+        await Shell.Current.GoToAsync(nameof(ViewBloodRecPage), false, new Dictionary<string, object>
+        {
+            {
+
+                "rec", rec
+            }
+
+        });
+
+
     }
 }
