@@ -23,19 +23,5 @@ public partial class BloodLogPage : ContentPage
         _viewModel.GetRecList();
     }
 
-    private async void RecTapped(object sender, ItemTappedEventArgs e)
-    {
-        var rec = (BloodRec)e.Item;
-
-        await Shell.Current.GoToAsync(nameof(ViewBloodRecPage), false, new Dictionary<string, object>
-        {
-            {
-
-                "rec", rec
-            }
-
-        });
-
-
-    }
+ 
 }

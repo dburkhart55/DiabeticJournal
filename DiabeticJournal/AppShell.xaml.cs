@@ -35,7 +35,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ViewCFPage), typeof(ViewCFPage));
         Routing.RegisterRoute(nameof(BloodLogPage), typeof(BloodLogPage));
 		Routing.RegisterRoute(nameof(UserSettingPage), typeof(UserSettingPage));
-		Routing.RegisterRoute(nameof(ViewBloodRecPage), typeof(ViewBloodRecPage));
+		
 
 	}
 

@@ -27,10 +27,6 @@
                                     <Label Text="{Binding Comment}" Margin="40,0,0,0" FontSize="14" FontAttributes="Bold" />
                                 </HorizontalStackLayout>
                             </StackLayout>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:BloodLogPageViewModel}},Path=DisplayActionCommand}"
-                                                  CommandParameter="{Binding .}" />
-                            </Frame.GestureRecognizers>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
