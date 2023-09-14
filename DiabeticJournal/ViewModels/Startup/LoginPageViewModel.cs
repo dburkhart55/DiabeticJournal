@@ -50,6 +50,7 @@ namespace DiabeticJournal.ViewModels.Startup
                 if(loggedIn != null)
                 {
                     App.loggedInUser = loggedIn;
+                    ClearForm();
                     await Shell.Current.GoToAsync($"//{nameof(Dashboard)}");
                 }
                 else
@@ -118,6 +119,15 @@ namespace DiabeticJournal.ViewModels.Startup
             }
 
             return null;
+        }
+
+        async void ClearForm()
+        {
+
+            Username = null;
+            Password = null;
+
+            await App.Current.MainPage.DisplayAlert("test", "clear form called and completed", "OK");
         }
 
     }

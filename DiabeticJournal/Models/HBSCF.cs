@@ -10,6 +10,7 @@ namespace DiabeticJournal.Models
     [Table("HBSCFS")]
     public class HBSCF
     {
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public int UserId { get; set; }
         public string StartTime { get; set; }

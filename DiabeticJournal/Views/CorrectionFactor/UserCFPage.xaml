@@ -8,7 +8,7 @@
              BackgroundColor="Black">
     <VerticalStackLayout>
         <StackLayout Margin="10">
-            <Button Text="Add Ratio" Command="{Binding AddCFCommand}" HorizontalOptions="EndAndExpand" />
+            <Button Text="Add Correction Factor" Command="{Binding AddCFCommand}" HorizontalOptions="EndAndExpand" />
 
             <CollectionView ItemsSource="{Binding CFs}">
                 <CollectionView.ItemTemplate>
@@ -16,6 +16,7 @@
                         <Frame Margin="10" Padding="10">
                             <StackLayout >
                                 <HorizontalStackLayout Spacing="10">
+                                    <Label Text="{Binding Id}" FontSize="18" FontAttributes="Bold" />
                                     <Label Text="{Binding StartTime}" FontSize="18" FontAttributes="Bold" />
                                     <Label Text="{Binding EndTime}" FontSize="18" FontAttributes="Bold" />
                                     <Label Text="{Binding CorrectionFactor}" FontSize="18" FontAttributes="Bold" />

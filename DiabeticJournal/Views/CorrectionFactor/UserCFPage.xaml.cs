@@ -27,7 +27,7 @@ public partial class UserCFPage : ContentPage
         _viewModel.GetCFList();
     }
 
-    private async void RatioTapped(object sender, ItemTappedEventArgs e)
+    private async void CFTapped(object sender, ItemTappedEventArgs e)
     {
         var cf = (HBSCF)e.Item;
 

@@ -523,7 +523,7 @@ namespace DiabeticJournal
                 // enter this line
                 result = await db.InsertAsync(cf);
 
-
+                await Shell.Current.DisplayAlert("Correction Factor Submission", result.ToString(), "ok");
 
             }
             catch (Exception ex)

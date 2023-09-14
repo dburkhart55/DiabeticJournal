@@ -10,7 +10,7 @@ using DiabeticJournal.Views.CorrectionFactor;
 
 namespace DiabeticJournal.ViewModels.CorrectionFactor
 {
-    [QueryProperty(nameof(cf), "cf")]
+    [QueryProperty(nameof(Cf), "cf")]
     //[QueryProperty(nameof(Id), "id")]
     public partial class ViewCFPageViewModel : BaseViewModel
     {
@@ -18,7 +18,7 @@ namespace DiabeticJournal.ViewModels.CorrectionFactor
         string test;
 
         [ObservableProperty]
-        HBSCF cf = new Models.HBSCF();
+        HBSCF cf = new HBSCF();
 
         [ObservableProperty]
         TimeSpan startTime = new TimeSpan();

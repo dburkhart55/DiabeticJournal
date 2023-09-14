@@ -56,7 +56,7 @@ namespace DiabeticJournal.ViewModels.CorrectionFactor
                 End = TimeSpan.Parse("00:00:00");
                 Cf = 0;
 
-                await Shell.Current.DisplayAlert("Ratio Submission", "Your new ratio has been added successfully", "ok");
+                await Shell.Current.DisplayAlert("Correction Factor Submission", "Your new correction factor has been added successfully", "ok");
                 await AppShell.Current.GoToAsync($"//{nameof(UserCFPage)}");
             }
             else

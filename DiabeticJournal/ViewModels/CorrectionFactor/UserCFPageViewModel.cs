@@ -53,11 +53,12 @@ namespace DiabeticJournal.ViewModels.CorrectionFactor
         [ICommand]
         public async void DisplayAction(HBSCF cf)
         {
-            var response = await AppShell.Current.DisplayActionSheet("Selelct an Option", "OK", null, "Edit", "Delete");
+            var response = await AppShell.Current.DisplayActionSheet("Selelct an Option " + cf.Id, null, null, "Edit", "Delete");
             if(response == "Edit")
             {
                 var navParam = new Dictionary<string, object>();
                 navParam.Add("cf", cf);
+                await Shell.Current.DisplayAlert("debug", navParam.ToString(), "OK");
                 await AppShell.Current.GoToAsync(nameof(ViewCFPage), navParam);
             }
             else if (response == "Delete")

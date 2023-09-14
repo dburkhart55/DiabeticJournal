@@ -59,7 +59,7 @@ namespace DiabeticJournal.ViewModels.Ratio
         [ICommand]
         public async void DisplayAction(Models.Ratio ratio)
         {
-            var response = await AppShell.Current.DisplayActionSheet("Selelct an Option", "OK", null, "Edit", "Delete");
+            var response = await AppShell.Current.DisplayActionSheet("Selelct an Option", null, null, "Edit", "Delete");
             if(response == "Edit")
             {
                 var navParam = new Dictionary<string, object>();
